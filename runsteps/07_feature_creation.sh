@@ -3,6 +3,7 @@
 
 source runsteps/xx_utility_funcs.sh
 
+feat_cmd="utils/run.pl"
 # common args
 tolerance=1
 strict=true
@@ -13,7 +14,7 @@ verbose=0
 compress=false
 nj=10
 cmd=$feat_cmd
-
+FEAT_NAMES="kaldi"
 source utils/parse_options.sh
 
 set -e

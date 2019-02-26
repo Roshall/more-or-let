@@ -14,7 +14,7 @@ export ERR_C="\e[91m"
 export DEFT_C="\e[39m"
 export USE_CONDA=false
 export USE_VIRTUALENV=false
-export PYTHON_VER=3.6
+export PYTHON_VER=3.5
 export CONDA_ENV_NAME="${PROJECT_NAME}"
 export VIRTUALENV_DIR="exp/venv" # the directory called with virtualenv
                                    # do not set to the parent. Could delete

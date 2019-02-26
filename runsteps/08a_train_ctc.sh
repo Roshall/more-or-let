@@ -5,6 +5,7 @@ training_stage=adam
 model_formatter=
 train_formatter=
 verbose=0
+NUM_TRIALS=1
 
 source utils/parse_options.sh
 

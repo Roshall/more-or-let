@@ -4,13 +4,14 @@
 set -e
 
 source runsteps/xx_utility_funcs.sh
-
+train_cmd="run.pl"
 logdir=exp/log/train
 cmd=$train_cmd
 model_conf=conf/model.conf
 verbose=0
 model_formatter=
 source utils/parse_options.sh
+FEAT_NAMES="kaldi"
 
 if $PREPROCESS_ON_BATCH ; then
   num_feats=41

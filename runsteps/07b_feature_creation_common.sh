@@ -56,6 +56,7 @@ reference dims $(head -n 1 """${tmpdir}/exp_dims""")."
   fi
   if $norm_means || $norm_vars; then
     if [ $x = "train" ]; then
+      iecho ${PATH}
       compute-cmvn-stats \
         --verbose=${verbose} \
         "${out_rspecifier}" "${data}/train/cmvn_${name}.kdt"
