@@ -4,7 +4,10 @@
 set -e
 
 source runsteps/xx_utility_funcs.sh
-
+# add train_cmd
+train_cmd="utils/run.pl"
+# add FEAT_NAMES
+FEAT_NAMES="kaldi"
 logdir=exp/log/train
 cmd=$train_cmd
 model_conf=conf/model.conf

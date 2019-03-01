@@ -27,7 +27,7 @@ if [ -z "${model_path}" ]; then
     \> "${exp_dir}/best_model_paths/TRIAL.txt"
   model_path_path="${exp_dir}/best_model_paths/TRIAL.txt"
 else
-  if [ num_trials != 1 ] && [ -z "$(echo "${model_path}" | grep TRIAL)" ]; then
+  if [ $num_trials != 1 ] && [ -z "$(echo "${model_path}" | grep TRIAL)" ]; then
     eecho "More than one trial specified, but '${model_path}' does not contain
 the 'TRIAL' keyword."
     exit 1
@@ -75,7 +75,7 @@ for x in train dev test; do
       "--verbose=${verbose}" \
       "--num-feats=${num_feats}" \
       "--num-labels=${num_labels}" \
-      "--model-path=\$\(cat ${model_path_path} \)" \
+      "--model-path=\$(cat ${model_path_path})" \
       "${extra_args[@]}--config=${model_conf}" \> \
         "${loss_dir}/${x}/loss_${feat_name}.txt"
 done

@@ -24,10 +24,12 @@ function error_exit () {
 
 # if we need the timit dir
 function resolve_timit() {
+echo ${TIMIT_DIR}
   if [ -d "${TIMIT_DIR}/TIMIT" ]; then
+    echo "gut"
     export TIMIT_DIR="${TIMIT_DIR}/TIMIT"
   fi
-  if [ ! -d "${TIMIT_DIR}/TRAIN" ]; then
+  if [ ! -d "${TIMIT_DIR}/train" ]; then
     eecho "TIMIT_DIR not set or set incorrectly. Export as path to TIMIT"
     exit 1
   else

@@ -4,7 +4,8 @@
 source runsteps/xx_utility_funcs.sh
 
 beam_width=100
-
+# add NUM_TRIALS
+NUM_TRIALS=1
 source utils/parse_options.sh
 
 if [ $# -lt 3 ] || [ $# -gt 4 ]; then

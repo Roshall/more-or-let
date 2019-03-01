@@ -4,7 +4,10 @@
 set -e
 
 source runsteps/xx_utility_funcs.sh
-
+# add decode_cmd
+decode_cmd="utils/run.pl"
+# add FEAT_NAMES
+FEAT_NAMES="kaldi"
 logdir=exp/log/decode
 cmd=$decode_cmd
 model_conf=conf/model.conf
