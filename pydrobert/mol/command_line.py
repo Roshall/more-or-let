@@ -197,9 +197,11 @@ def decode_cnn_ctc(args=None):
     if not logger.handlers:
         logger.addHandler(logging.StreamHandler())
     register_logger_for_kaldi(sys.argv[0])
+    #parsing options
     options = _decode_cnn_ctc_parse_args(args, logger)
     logger.log(9, 'Parsed options')
     id2label_map = dict()
+    # operate with label
     with open(options.label_to_id_map_path) as file_obj:
         for line in file_obj:
             label, idee = line.strip().split()
@@ -227,6 +229,7 @@ def decode_cnn_ctc(args=None):
         batch_size=decode_config.batch_size,
     )
     total_batches = len(decode_data)
+    # lable output file
     labels_out = io_open(options.output_wspecifier, 'tv', mode='w')
     logger.log(9, 'Set up eval data and opened label output file')
     with redirect_stdout_to_stderr():
@@ -536,3 +539,13 @@ def alt_add_deltas(args=None):
         num_utts += 1
     logger.info('Added {} deltas to {} utterances'.format(
         options.delta_order, num_utts))
+
+
+import os
+os.environ['LC_ALL'] = 'C'
+rootPath = os.path.dirname(sys.path[0])
+rootPath = os.path.dirname(rootPath)
+os.chdir(rootPath)
+decode_cnn_ctc(("scp,s:data/41/test/feats_kaldi_41.scp","ark,t,p:exp/kaldi_41.1/decode_test/scoring/100_60phn_2.txt",
+                "data/41/test/phn_id.map","--verbose=0","--num-feats=41","--num-labels=62",
+                "--beam-width=100","--model-path=exp/model/kaldi_41-0300.1.h5"))
